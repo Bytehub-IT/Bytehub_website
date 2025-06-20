@@ -1,7 +1,7 @@
 /* global __app_id, __firebase_config, __initial_auth_token */
 
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getFirestore, doc, setDoc, collection, query, onSnapshot, addDoc, deleteDoc } from 'firebase/firestore';
 
 // For local development, use the provided Firebase config directly
@@ -24,6 +24,10 @@ export const initialAuthToken = null; // Not used for email/password auth
 export const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth(firebaseApp);
+
+// Google Auth Provider for sign-in with Google
+export const googleProvider = new GoogleAuthProvider();
+export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
 
 // Export the Firebase services for use in other components
 export { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut };

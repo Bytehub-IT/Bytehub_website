@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, LogIn, UserPlus } from 'lucide-react';
-import { auth } from '../firebase.js'; // Corrected import path
+import { auth, signInWithGoogle } from '../firebase.js'; // Corrected import path
 import { signInWithEmailAndPassword } from 'firebase/auth'; // Specific function import
 
 const SignInPage = ({ setCurrentPage }) => {
@@ -40,6 +40,19 @@ const SignInPage = ({ setCurrentPage }) => {
           setError(`Sign-in failed: ${err.message}`);
           break;
       }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setError('');
+    setIsLoading(true);
+    try {
+      await signInWithGoogle();
+      // User is now signed in with Google
+    } catch (err) {
+      setError('Google sign-in failed.');
     } finally {
       setIsLoading(false);
     }
@@ -99,6 +112,16 @@ const SignInPage = ({ setCurrentPage }) => {
             )}
           </button>
         </form>
+        {/* Add spacing before Google sign-in button */}
+        <div style={{ height: '2rem' }} />
+        <button
+          type="button"
+          onClick={handleGoogleSignIn}
+          className="w-full px-6 py-4 bg-red-600 text-white font-semibold text-lg rounded-full shadow-lg hover:bg-red-700 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-75 btn-hover-effect flex items-center justify-center mb-4"
+          disabled={isLoading}
+        >
+          Sign in with Google
+        </button>
         <p className="mt-8 text-blue-200">
           Don't have an account?{' '}
           <button onClick={() => setCurrentPage('signup')} className="text-blue-400 hover:underline font-medium focus:outline-none">
