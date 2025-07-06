@@ -16,6 +16,7 @@ const HomePage = ({ setCurrentPage }) => {
           backgroundImage: "linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8))",
         }}>
         {/* Dynamic Particle Background */}
+        <div className="absolute inset-0 z-0 bg-black bg-opacity-80" style={{pointerEvents: 'none'}}></div>
         <ParticleBackground />
 
         {/* Hero Content */}

@@ -14,8 +14,8 @@ import SignInPage from './pages/SignInPage.jsx'; // Corrected import path
 import SignUpPage from './pages/SignUpPage.jsx'; // Corrected import path
 import ClientDashboardPage from './pages/ClientDashboardPage.jsx'; // Corrected import path
 import NavItem from './components/common/NavItem.jsx'; // Corrected import path
-// ServiceDetailsModal is imported and used within ServicesPage, no direct import needed here unless it's used directly in App.jsx
-// import ServiceDetailsModal from './modals/ServiceDetailsModal'; 
+import ThemeToggle from './components/common/ThemeToggle.jsx';
+import WhatsappButton from './components/common/WhatsappButton.jsx';
 
 // --- Main App component ---
 const App = () => {
@@ -23,6 +23,7 @@ const App = () => {
   const [user, setUser] = useState(null); // Firebase User object
   const [userId, setUserId] = useState(null); // User ID for Firestore
   const [authReady, setAuthReady] = useState(false); // Auth state listener ready
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     // If Firebase Auth service is not available (due to failed initialization),
@@ -61,6 +62,18 @@ const App = () => {
     return () => unsubscribe(); // Cleanup the auth listener on component unmount
   }, []); // Empty dependency array means this runs once on component mount
 
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.body.style.backgroundColor = '#09090b';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.body.style.backgroundColor = '#f9fafb';
+    }
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+
   const handleLogout = async () => {
     try {
       if (auth) { // Ensure auth object exists before trying to sign out
@@ -93,10 +106,7 @@ const App = () => {
         return <ServicesPage user={user} userId={userId} setCurrentPage={setCurrentPage} />;
       case 'pricing':
         return <PricingPage />;
-      case 'signin':
-        return <SignInPage setCurrentPage={setCurrentPage} />;
-      case 'signup':
-        return <SignUpPage setCurrentPage={setCurrentPage} />;
+      // Remove client login/signup pages
       case 'dashboard':
         // Ensure user is passed to dashboard. If user is null (e.g., anonymous user logged out),
         // redirect to sign-in. For anonymous users who are still "logged in", they will see their dashboard.
@@ -107,7 +117,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 to-black text-gray-100 font-inter antialiased overflow-x-hidden"> {/* Added overflow-x-hidden */}
+    <div className={`min-h-screen bg-gradient-to-br from-gray-950 to-black text-gray-100 font-inter antialiased overflow-x-hidden ${theme === 'dark' ? 'dark' : ''}`}> {/* Added overflow-x-hidden */}
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-sm z-50 p-4 border-b border-blue-900">
         <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
@@ -123,8 +133,7 @@ const App = () => {
             <NavItem icon={Info} label="About Us" active={currentPage === 'about'} onClick={() => setCurrentPage('about')} delay="300" />
             <NavItem icon={Briefcase} label="Services" active={currentPage === 'services'} onClick={() => setCurrentPage('services')} delay="400" />
             <NavItem icon={DollarSign} label="Pricing" active={currentPage === 'pricing'} onClick={() => setCurrentPage('pricing')} delay="500" />
-
-            {user ? (
+            {user && (
               <>
                 <NavItem icon={User} label="My Portal" active={currentPage === 'dashboard'} onClick={() => setCurrentPage('dashboard')} delay="600" />
                 <button
@@ -135,9 +144,10 @@ const App = () => {
                   Logout
                 </button>
               </>
-            ) : (
-              <NavItem icon={LogIn} label="Client Login" active={currentPage === 'signin' || currentPage === 'signup'} onClick={() => setCurrentPage('signin')} delay="600" />
             )}
+            <div className="ml-4">
+              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            </div>
           </div>
         </div>
       </nav>
@@ -154,6 +164,8 @@ const App = () => {
           <p className="mt-2 text-sm">Innovating Tomorrow's Digital Landscape.</p>
         </div>
       </footer>
+
+      <WhatsappButton />
     </div>
   );
 };

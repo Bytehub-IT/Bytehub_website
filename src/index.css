@@ -7,6 +7,117 @@ body {
   box-sizing: border-box;
 }
 
+/* === THEME SUPPORT === */
+:root {
+  --color-bg: #f4f6fb;
+  --color-text: #18181b;
+  --color-navbar: #f8fafcdd;
+  --color-card: #fff;
+  --color-footer: #f1f5f9;
+  --color-link: #2563eb;
+  --color-link-hover: #1d4ed8;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-border: #cbd5e1;
+  --color-btn-bg: #2563eb;
+  --color-btn-text: #fff;
+  --color-btn-hover: #1d4ed8;
+  --color-muted: #64748b;
+  --color-desc: #334155;
+  --color-desc-light: #1e293b;
+  --color-blue-100: #2563eb;
+  --color-blue-200: #1d4ed8;
+  --color-blue-300: #2563eb;
+}
+.dark {
+  --color-bg: #09090b;
+  --color-text: #f3f4f6;
+  --color-navbar: #18181bcc;
+  --color-card: #18181b;
+  --color-footer: #18181b;
+  --color-link: #60a5fa;
+  --color-link-hover: #3b82f6;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #3b82f6;
+  --color-border: #334155;
+  --color-btn-bg: #2563eb;
+  --color-btn-text: #fff;
+  --color-btn-hover: #1d4ed8;
+  --color-muted: #94a3b8;
+  --color-desc: #e0e7ef;
+  --color-desc-light: #cbd5e1;
+  --color-blue-100: #bae6fd;
+  --color-blue-200: #7dd3fc;
+  --color-blue-300: #38bdf8;
+}
+
+body, html {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+.bg-gradient-to-br {
+  background: var(--color-bg) !important;
+}
+
+.text-gray-100, .text-white, .text-gray-400, .text-blue-400, .text-blue-200, .text-blue-300 {
+  color: var(--color-text) !important;
+}
+
+nav, .navbar, .bg-black, .bg-black.bg-opacity-80 {
+  background: var(--color-navbar) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.bg-gray-900, .bg-gray-800, .bg-gray-950 {
+  background: var(--color-card) !important;
+  color: var(--color-text) !important;
+}
+
+footer, .footer, .bg-gradient-to-t {
+  background: var(--color-footer) !important;
+  color: var(--color-text) !important;
+  border-top: 1px solid var(--color-border) !important;
+}
+
+a, .text-blue-400, .text-blue-200, .text-blue-300 {
+  color: var(--color-link) !important;
+}
+a:hover {
+  color: var(--color-link-hover) !important;
+}
+
+input, textarea, select {
+  background: var(--color-card) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border);
+}
+.dark input, .dark textarea, .dark select {
+  background: #23272f !important;
+  color: #f3f4f6 !important;
+  border: 1px solid #334155;
+}
+
+button, .btn-hover-effect {
+  color: var(--color-btn-text) !important;
+  background: var(--color-btn-bg) !important;
+  border: 1px solid var(--color-btn-bg) !important;
+}
+button:hover, .btn-hover-effect:hover {
+  background: var(--color-btn-hover) !important;
+  color: var(--color-btn-text) !important;
+}
+
+.text-muted, .text-gray-400 {
+  color: var(--color-muted) !important;
+}
+
+.card-hover-effect {
+  background: var(--color-card) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
 /* Custom animation for hero text */
 @keyframes text-fade-in-out {
   0%, 100% { opacity: 0; transform: translateY(20px); }
@@ -137,4 +248,31 @@ body {
 }
 .spinner {
   animation: spinner-rotate 1s linear infinite;
+}
+
+.text-blue-100 {
+  color: var(--color-blue-100) !important;
+}
+.text-blue-200 {
+  color: var(--color-blue-200) !important;
+}
+.text-blue-300 {
+  color: var(--color-blue-300) !important;
+}
+
+.card-hover-effect p,
+.bg-gray-900 p,
+.bg-gray-800 p,
+.bg-gray-950 p,
+.text-desc,
+.card-description {
+  color: var(--color-desc) !important;
+}
+.dark .card-hover-effect p,
+.dark .bg-gray-900 p,
+.dark .bg-gray-800 p,
+.dark .bg-gray-950 p,
+.dark .text-desc,
+.dark .card-description {
+  color: var(--color-desc) !important;
 }
