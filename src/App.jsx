@@ -116,8 +116,11 @@ const App = () => {
     }
   };
 
+  // Mobile menu state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-gray-950 to-black text-gray-100 font-inter antialiased overflow-x-hidden ${theme === 'dark' ? 'dark' : ''}`}> {/* Added overflow-x-hidden */}
+    <div className={`min-h-screen bg-gradient-to-br from-gray-950 to-black text-gray-100 font-inter antialiased overflow-x-hidden ${theme === 'dark' ? 'dark' : ''}`}>
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-sm z-50 p-4 border-b border-blue-900">
         <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
@@ -127,8 +130,28 @@ const App = () => {
             <Code className="w-6 h-6 text-blue-400" />
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex items-center space-x-6">
+          {/* Hamburger for mobile */}
+          <div className="flex items-center md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-gray-300 hover:text-blue-400 focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+            <div className="ml-2">
+              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            </div>
+          </div>
+
+          {/* Navigation Links (desktop) */}
+          <div className="hidden md:flex items-center space-x-6">
             <NavItem icon={Home} label="Home" active={currentPage === 'home'} onClick={() => setCurrentPage('home')} delay="200" />
             <NavItem icon={Info} label="About Us" active={currentPage === 'about'} onClick={() => setCurrentPage('about')} delay="300" />
             <NavItem icon={Briefcase} label="Services" active={currentPage === 'services'} onClick={() => setCurrentPage('services')} delay="400" />
@@ -150,10 +173,31 @@ const App = () => {
             </div>
           </div>
         </div>
+        {/* Mobile menu dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-black bg-opacity-95 border-b border-blue-900 px-4 pt-2 pb-4 animate-in fade-in flex flex-col space-y-2">
+            <NavItem icon={Home} label="Home" active={currentPage === 'home'} onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} delay="200" />
+            <NavItem icon={Info} label="About Us" active={currentPage === 'about'} onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} delay="300" />
+            <NavItem icon={Briefcase} label="Services" active={currentPage === 'services'} onClick={() => { setCurrentPage('services'); setMobileMenuOpen(false); }} delay="400" />
+            <NavItem icon={DollarSign} label="Pricing" active={currentPage === 'pricing'} onClick={() => { setCurrentPage('pricing'); setMobileMenuOpen(false); }} delay="500" />
+            {user && (
+              <>
+                <NavItem icon={User} label="My Portal" active={currentPage === 'dashboard'} onClick={() => { setCurrentPage('dashboard'); setMobileMenuOpen(false); }} delay="600" />
+                <button
+                  onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
+                  className="flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-gray-300 hover:text-red-300 hover:bg-red-900 bg-opacity-30 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 animate-in delay-700"
+                >
+                  <LogOut className="w-5 h-5 mr-2" />
+                  Logout
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </nav>
 
       {/* Page Content */}
-      <main className="pt-20"> {/* Padding to offset fixed navbar */}
+      <main className="pt-20">
         {renderPage()}
       </main>
 
