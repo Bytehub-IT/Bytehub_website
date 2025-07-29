@@ -62,6 +62,32 @@ const AboutUsPage = () => {
               A visionary computer scientist, James architectures the robust and scalable software systems that form the backbone of ByteHub's offerings. His commitment to cutting-edge technology and secure infrastructure ensures our solutions are not just powerful, but also reliable and future-proof.
             </p>
           </div>
+          {/* Grace Syonzau */}
+          <div className={`bg-gray-900 p-8 rounded-xl shadow-lg border border-blue-900 text-center card-hover-effect ${sectionFoundersInView ? 'animate-in delay-300' : ''}`}>
+            <img
+              src="https://placehold.co/150x150/003366/FFFFFF?text=Grace"
+              alt="Grace Syonzau"
+              className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-blue-600 shadow-xl glow-effect"
+            />
+            <h3 className="text-3xl font-bold text-blue-300 mb-2">Grace Syonzau</h3>
+            <p className="text-blue-100 text-xl font-medium mb-4">Accountant</p>
+            <p className="text-blue-200 leading-relaxed">
+              With a B.S. in Accounting from KCA University and as an ongoing member of the CPA, I bring about two years of hands-on experience in accounting departments, particularly within large organizations such as hospitals. My focus is on <span className="italic">[mention a specific area if you have one, e.g., &quot;streamlining financial operations,&quot; &quot;ensuring financial accuracy,&quot; or &quot;data analysis&quot;]</span>.
+            </p>
+          </div>
+          {/* Pauline */}
+          <div className={`bg-gray-900 p-8 rounded-xl shadow-lg border border-blue-900 text-center card-hover-effect ${sectionFoundersInView ? 'animate-in delay-400' : ''}`}>
+            <img
+              src="https://placehold.co/150x150/003366/FFFFFF?text=Pauline"
+              alt="Pauline"
+              className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-blue-600 shadow-xl glow-effect"
+            />
+            <h3 className="text-3xl font-bold text-blue-300 mb-2">Pauline</h3>
+            <p className="text-blue-100 text-xl font-medium mb-4">Cloud Solutions Specialist</p>
+            <p className="text-blue-200 leading-relaxed">
+              A cloud solutions specialist &amp; certified KCNA professional. Pauline leads the strategic design of scalable IT systems tailored for startups. With a strong foundation in data management and a deep understanding of cloud-native technologies, she ensures our team delivers agile, cost-effective, and future-ready solutions that help small businesses thrive in a digital world.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -70,14 +96,9 @@ const AboutUsPage = () => {
         <h2 className={`text-4xl font-bold text-center text-white mb-8 ${sectionJourneyInView ? 'animate-in' : ''}`}>Our Journey</h2>
         <div className={`text-blue-200 text-center leading-relaxed ${sectionJourneyInView ? 'animate-in delay-100' : ''}`}>
           <p className="mb-4">
-            From our headquarters in Kenya, ByteHub has embarked on an ambitious journey to redefine technology services globally.
+            Headquartered in Kenya, ByteHub has undertaken a distinguished journey to transform the global technology landscape. Our commitment to excellence and innovation drives us to deliver impactful solutions that empower organizations and individuals worldwide.
           </p>
-          <p>
-            Imagine an interactive timeline here, visually showcasing key milestones: founding, first major client, expansion into new markets, launch of educational programs, and significant outreach initiatives. Each point on the timeline could animate, revealing more details and a sense of dynamic growth.
-          </p>
-          <p className="mt-4 text-blue-300">
-            (Future Enhancement: An interactive 3D timeline showing global expansion.)
-          </p>
+          
         </div>
       </section>
     </div>
