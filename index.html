@@ -12,13 +12,39 @@
   </head>
   <body>
     <div id="root">
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Inter, sans-serif;">
-        <div style="text-align: center;">
-          <h1 style="color: #0a1a3d;">Loading ByteHub...</h1>
-          <p style="color: #666;">Please wait while we load your website.</p>
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Inter, sans-serif; background: linear-gradient(135deg, #0a1a3d, #1e40af);">
+        <div style="text-align: center; color: white; padding: 2rem; border-radius: 1rem; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+          <h1 style="color: #fbbf24; margin-bottom: 1rem;">ByteHub</h1>
+          <p style="color: #e5e7eb; margin-bottom: 1rem;">Loading your digital experience...</p>
+          <div style="width: 50px; height: 50px; border: 3px solid #fbbf24; border-top: 3px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
         </div>
       </div>
     </div>
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      body { margin: 0; padding: 0; }
+    </style>
+    <script>
+      console.log('HTML loaded successfully');
+      console.log('Looking for root element:', document.getElementById('root'));
+      
+      // Add error handling
+      window.addEventListener('error', function(e) {
+        console.error('JavaScript error:', e.error);
+        document.getElementById('root').innerHTML = '<div style="padding: 2rem; text-align: center; color: red;"><h2>Loading Error</h2><p>There was an error loading the website. Please refresh the page.</p><p>Error: ' + e.message + '</p></div>';
+      });
+      
+      // Timeout fallback
+      setTimeout(function() {
+        if (document.getElementById('root').innerHTML.includes('Loading your digital experience')) {
+          console.warn('App failed to load within 10 seconds');
+          document.getElementById('root').innerHTML = '<div style="padding: 2rem; text-align: center;"><h2 style="color: #0a1a3d;">ByteHub</h2><p>The website is loading slowly. Please refresh the page or contact us at <a href="mailto:byte.hub77@gmail.com">byte.hub77@gmail.com</a></p></div>';
+        }
+      }, 10000);
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
