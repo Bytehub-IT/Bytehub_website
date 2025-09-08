@@ -29,12 +29,11 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: npm run build
-      
-    - name: Copy static files
       run: |
-        cp public/.nojekyll dist/
+        npm run build
+        cp public/.nojekyll dist/ || true
         cp public/favicon.jpg dist/ || true
+        cp CNAME dist/ || true
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
