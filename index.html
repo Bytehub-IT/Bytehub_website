@@ -1,51 +1,371 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ByteHub - Innovating Tomorrow's Digital Landscape</title>
-    <meta name="description" content="ByteHub: Empowering Futures Through Technology. Your Vision, Our Code. Advanced software development, web & mobile solutions, and tech education." />
+    <meta name="description" content="ByteHub: Empowering Futures Through Technology. Your Vision, Our Code. Advanced software development, web & mobile solutions, and tech education.">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root">
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Inter, sans-serif; background: linear-gradient(135deg, #0a1a3d, #1e40af);">
-        <div style="text-align: center; color: white; padding: 2rem; border-radius: 1rem; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
-          <h1 style="color: #fbbf24; margin-bottom: 1rem;">ByteHub</h1>
-          <p style="color: #e5e7eb; margin-bottom: 1rem;">Loading your digital experience...</p>
-          <div style="width: 50px; height: 50px; border: 3px solid #fbbf24; border-top: 3px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="byte_hub.jpg" alt="ByteHub Logo" class="logo-img">
+                    <span class="logo-text">ByteHub</span>
+                </div>
+                <nav class="nav" id="nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
+                    <button class="mobile-menu" id="mobileMenu">☰</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <style>
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      body { margin: 0; padding: 0; }
-    </style>
-    <script>
-      console.log('HTML loaded successfully');
-      console.log('Looking for root element:', document.getElementById('root'));
-      console.log('Production build - should load compiled JS bundle');
-      
-      // Add error handling
-      window.addEventListener('error', function(e) {
-        console.error('JavaScript error:', e.error);
-        document.getElementById('root').innerHTML = '<div style="padding: 2rem; text-align: center; color: red;"><h2>Loading Error</h2><p>There was an error loading the website. Please refresh the page.</p><p>Error: ' + e.message + '</p></div>';
-      });
-      
-      // Timeout fallback
-      setTimeout(function() {
-        if (document.getElementById('root').innerHTML.includes('Loading your digital experience')) {
-          console.warn('App failed to load within 10 seconds');
-          document.getElementById('root').innerHTML = '<div style="padding: 2rem; text-align: center;"><h2 style="color: #0a1a3d;">ByteHub</h2><p>The website is loading slowly. Please refresh the page or contact us at <a href="mailto:byte.hub77@gmail.com">byte.hub77@gmail.com</a></p></div>';
-        }
-      }, 10000);
-    </script>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>✨ Innovating Tomorrow's Digital Landscape</span>
+                </div>
+                <h1 class="hero-title">ByteHub</h1>
+                <p class="hero-subtitle">
+                    Empowering Futures Through Technology. <br>
+                    <span class="highlight">Your Vision, Our Code.</span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Explore Our Services</a>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Offerings</h2>
+                <p class="section-subtitle">Transforming ideas into powerful digital solutions that drive innovation and growth</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Advanced Software Systems</h3>
+                    <p>Custom enterprise solutions, financial systems, hospital management, and AI-powered applications tailored to your business needs.</p>
+                    <ul class="service-features">
+                        <li>Enterprise Software</li>
+                        <li>AI Integration</li>
+                        <li>Custom APIs</li>
+                        <li>Database Design</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Web & Mobile Development</h3>
+                    <p>Modern, responsive websites and mobile applications built with cutting-edge technologies and user-centric design principles.</p>
+                    <ul class="service-features">
+                        <li>React/Next.js</li>
+                        <li>Mobile Apps</li>
+                        <li>E-commerce</li>
+                        <li>Progressive Web Apps</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>Tech Education & Mentorship</h3>
+                    <p>Comprehensive training programs and personalized mentorship to build future-ready digital skills and technical expertise.</p>
+                    <ul class="service-features">
+                        <li>Coding Bootcamps</li>
+                        <li>1-on-1 Mentorship</li>
+                        <li>Industry Certifications</li>
+                        <li>Career Guidance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="mailto:byte.hub77@gmail.com?subject=Consultation%20Request&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20request%20a%20consultation." class="btn btn-primary">Request a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Impact Section -->
+    <section class="global-impact section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Global Impact</h2>
+                <p class="section-subtitle">Making a difference worldwide through technology and education</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🌍</div>
+                    <h3>Community Outreach</h3>
+                    <p>Training underserved areas to bridge the digital divide and create opportunities for economic growth through technology education.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">💡</div>
+                    <h3>Innovation Hubs</h3>
+                    <p>Organizing workshops, hackathons, and coding challenges to foster creativity and collaborative problem-solving in tech communities.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">🚀</div>
+                    <h3>Future-Ready Skills</h3>
+                    <p>Developing digital skills programs that prepare individuals for global success in the rapidly evolving technology landscape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About ByteHub</h2>
+            </div>
+            <div class="mission-vision">
+                <div class="mission-card">
+                    <h3>Our Mission</h3>
+                    <p>To empower individuals and organizations with cutting-edge technology solutions that drive innovation, efficiency, and sustainable growth in an increasingly digital world.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>Our Vision</h3>
+                    <p>To be the leading catalyst for digital transformation globally, creating a future where technology serves as a bridge to opportunities, education, and sustainable development for all.</p>
+                </div>
+            </div>
+            <div class="team-section">
+                <h3 class="team-title">Meet Our Team</h3>
+                <p class="team-subtitle">Passionate professionals dedicated to bringing your digital vision to life</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="lorine.jpg" alt="Lorine Khanira" class="member-photo">
+                        <h4>Lorine Khanira</h4>
+                        <p class="member-role">Co-Founder & Data Specialist</p>
+                        <p class="member-bio">Expert in data analytics and business intelligence with a passion for transforming raw data into actionable insights that drive strategic decisions.</p>
+                        <div class="member-skills">
+                            <span>Data Analytics</span>
+                            <span>Business Intelligence</span>
+                            <span>Strategic Planning</span>
+                            <span>Market Research</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="james.jpg" alt="James Bajee" class="member-photo">
+                        <h4>James Bajee</h4>
+                        <p class="member-role">Co-Founder & Computer Scientist</p>
+                        <p class="member-bio">Full-stack developer and computer scientist specializing in scalable software architecture and cutting-edge technology solutions.</p>
+                        <div class="member-skills">
+                            <span>Software Architecture</span>
+                            <span>Full-Stack Development</span>
+                            <span>AI/ML</span>
+                            <span>System Design</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="grace k.jpg" alt="Grace Syonzau" class="member-photo">
+                        <h4>Grace Syonzau</h4>
+                        <p class="member-role">Accountant</p>
+                        <p class="member-bio">Financial expert ensuring sound fiscal management and strategic financial planning for sustainable business growth.</p>
+                        <div class="member-skills">
+                            <span>Financial Planning</span>
+                            <span>Budget Management</span>
+                            <span>Tax Strategy</span>
+                            <span>Business Analysis</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="pauline.jpg" alt="Pauline" class="member-photo">
+                        <h4>Pauline</h4>
+                        <p class="member-role">Cloud Solutions Specialist</p>
+                        <p class="member-bio">Cloud infrastructure expert focused on building scalable, secure, and efficient cloud-based solutions for modern businesses.</p>
+                        <div class="member-skills">
+                            <span>Cloud Architecture</span>
+                            <span>DevOps</span>
+                            <span>Security</span>
+                            <span>Infrastructure Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pricing Plans</h2>
+                <p class="section-subtitle">Choose the perfect plan for your needs and budget</p>
+            </div>
+            
+            <div class="pricing-category">
+                <h3 class="category-title">Software & Development Plans</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h4>Startup Launchpad</h4>
+                        <div class="price">$2,500+</div>
+                        <p>Perfect for small businesses and startups looking to establish their digital presence</p>
+                        <ul class="features-list">
+                            <li>Custom Website Development</li>
+                            <li>Basic Mobile App</li>
+                            <li>Database Setup</li>
+                            <li>3 Months Support</li>
+                            <li>Basic SEO Optimization</li>
+                            <li>Email Integration</li>
+                        </ul>
+                        <a href="mailto:byte.hub77@gmail.com?subject=Consultation%20Request&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." class="btn btn-outline">Inquire Now</a>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">⭐ Most Popular</div>
+                        <h4>Growth Engine</h4>
+                        <div class="price">$7,000+</div>
+                        <p>Comprehensive solution for growing businesses ready to scale their operations</p>
+                        <ul class="features-list">
+                            <li>Advanced Web Applications</li>
+                            <li>Cross-Platform Mobile Apps</li>
+                            <li>Custom Software Development</li>
+                            <li>API Integrations</li>
+                            <li>Cloud Infrastructure</li>
+                            <li>12 Months Support</li>
+                            <li>Advanced Analytics</li>
+                            <li>Security Implementation</li>
+                        </ul>
+                        <a href="mailto:byte.hub77@gmail.com?subject=Consultation%20Request&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." class="btn btn-primary">Inquire Now</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h4>Enterprise Platinum</h4>
+                        <div class="price">Custom Quote</div>
+                        <p>Enterprise-grade solutions for large organizations with complex requirements</p>
+                        <ul class="features-list">
+                            <li>Full-Scale Software Systems</li>
+                            <li>AI/ML Integration</li>
+                            <li>Custom Architecture Design</li>
+                            <li>Dedicated Development Team</li>
+                            <li>24/7 Priority Support</li>
+                            <li>Advanced Security & Compliance</li>
+                            <li>Scalable Cloud Infrastructure</li>
+                            <li>Ongoing Maintenance & Updates</li>
+                        </ul>
+                        <a href="mailto:byte.hub77@gmail.com?subject=Consultation%20Request&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." class="btn btn-outline">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-category">
+                <h3 class="category-title">🎓 Education Programs</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h4>Foundations Course Pack</h4>
+                        <div class="price">$499 <span class="period">one-time</span></div>
+                        <p>Essential programming and tech skills for beginners</p>
+                        <ul class="features-list">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>Python Fundamentals</li>
+                            <li>Database Basics</li>
+                            <li>Project-Based Learning</li>
+                            <li>Certificate of Completion</li>
+                            <li>Lifetime Access to Materials</li>
+                        </ul>
+                        <a href="mailto:byte.hub77@gmail.com?subject=Education%20Program%20Enrollment&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20enroll%20in%20your%20education%20programs." class="btn btn-primary">Enroll Now</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h4>Advanced Skills Subscription</h4>
+                        <div class="price">$99 <span class="period">/month</span></div>
+                        <p>Continuous learning with advanced topics and new technologies</p>
+                        <ul class="features-list">
+                            <li>Monthly New Courses</li>
+                            <li>Live Coding Sessions</li>
+                            <li>React, Node.js, Cloud</li>
+                            <li>Industry Best Practices</li>
+                            <li>Community Access</li>
+                            <li>Career Resources</li>
+                        </ul>
+                        <a href="mailto:byte.hub77@gmail.com?subject=Education%20Program%20Enrollment&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20enroll%20in%20your%20education%20programs." class="btn btn-primary">Enroll Now</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h4>Personalized Mentorship</h4>
+                        <div class="price">$150 <span class="period">/hour</span></div>
+                        <p>One-on-one guidance tailored to your specific goals and challenges</p>
+                        <ul class="features-list">
+                            <li>1-on-1 Video Sessions</li>
+                            <li>Personalized Learning Path</li>
+                            <li>Code Review & Feedback</li>
+                            <li>Career Guidance</li>
+                            <li>Portfolio Development</li>
+                            <li>Interview Preparation</li>
+                        </ul>
+                        <a href="mailto:byte.hub77@gmail.com?subject=Education%20Program%20Enrollment&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20enroll%20in%20your%20education%20programs." class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="byte_hub.jpg" alt="ByteHub Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">ByteHub</span>
+                    </div>
+                    <p class="footer-tagline">Innovating Tomorrow's Digital Landscape. Empowering futures through technology with cutting-edge solutions and comprehensive education programs.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/254790775978?text=Hi%20Lorine%2C%20I%20would%20like%20to%20chat%20with%20ByteHub!" target="_blank" title="WhatsApp">💬</a>
+                        <a href="https://www.tiktok.com/@bytehub.it?_t=ZM-8zXHh3amSOc&_r=1" target="_blank" title="TikTok">🎵</a>
+                        <a href="https://www.instagram.com/bytehub.it?igsh=c29ucWFkZ240bmZs" target="_blank" title="Instagram">📸</a>
+                        <a href="mailto:byte.hub77@gmail.com" title="Email">📧</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get in Touch</h4>
+                    <div class="contact-info">
+                        <p>📧 byte.hub77@gmail.com</p>
+                        <p>📱 +254 790 775 978</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ByteHub. All rights reserved.</p>
+                <p class="footer-tagline-bottom">"Innovating Tomorrow's Digital Landscape"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254790775978?text=Hi%20Lorine%2C%20I%20would%20like%20to%20chat%20with%20ByteHub!" 
+       target="_blank" 
+       class="whatsapp-float"
+       title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <script src="script.js"></script>
+</body>
 </html>
