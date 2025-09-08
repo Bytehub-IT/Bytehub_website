@@ -39,6 +39,9 @@ jobs:
         ls -la dist/
         echo "Contents of dist/assets:"
         ls -la dist/assets/ || true
+        echo "Removing source files to prevent confusion:"
+        rm -f dist/src/ || true
+        rm -f dist/index.html.bak || true
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -46,8 +49,10 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
       with:
-        path: './dist'
+        path: 'dist'
         
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
