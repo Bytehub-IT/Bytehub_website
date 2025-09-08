@@ -8,6 +8,9 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
+      input: {
+        main: './index.html'
+      },
       output: {
         manualChunks: undefined,
       },
