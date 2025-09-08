@@ -31,9 +31,14 @@ jobs:
     - name: Build
       run: |
         npm run build
+        ls -la dist/
         cp public/.nojekyll dist/ || true
         cp public/favicon.jpg dist/ || true
         cp CNAME dist/ || true
+        echo "Build completed. Contents of dist:"
+        ls -la dist/
+        echo "Contents of dist/assets:"
+        ls -la dist/assets/ || true
         
     - name: Setup Pages
       uses: actions/configure-pages@v4

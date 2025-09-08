@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteHub - Innovating Tomorrow's Digital Landscape</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a1a3d, #1e40af);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #e5e7eb;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            color: #0a1a3d;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 1rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20b954;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.25rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-info {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ByteHub</h1>
+            <p>Innovating Tomorrow's Digital Landscape<br>
+            <span style="color: #fbbf24; font-weight: 600;">Your Vision, Our Code.</span></p>
+            
+            <div class="cta-buttons">
+                <a href="mailto:byte.hub77@gmail.com?subject=Service%20Inquiry&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services." class="btn btn-primary">
+                    Get Started
+                </a>
+                <a href="mailto:byte.hub77@gmail.com?subject=Consultation%20Request&body=Hello%20ByteHub%2C%20I%20would%20like%20to%20request%20a%20consultation." class="btn btn-secondary">
+                    Request Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <div class="contact-info">
+        <div style="margin-bottom: 0.5rem;">
+            <strong>Contact ByteHub</strong>
+        </div>
+        <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+            📧 byte.hub77@gmail.com<br>
+            📱 +254 790 775 978
+        </div>
+        <a href="https://wa.me/254790775978?text=Hi%20Lorine%2C%20I%20would%20like%20to%20chat%20with%20ByteHub!" 
+           target="_blank" 
+           class="whatsapp-btn">
+            💬 WhatsApp Chat
+        </a>
+    </div>
+    
+    <script>
+        console.log('ByteHub fallback page loaded successfully');
+        
+        // Add some interactivity
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
